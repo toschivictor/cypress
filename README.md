@@ -1,4 +1,4 @@
-# test
+# Simple app for Cypress testing
 
 ## Project setup
 ```
