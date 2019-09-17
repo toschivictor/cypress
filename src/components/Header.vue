@@ -2,7 +2,7 @@
   <header class="header">
     <ul class="nav nav-pills">
       <li class="nav-item">
-        <a href="" class="nav-link active">
+        <a href="#" @click="fetchNotifications(0)" class="nav-link active">
           Notifications 
           <span v-if="notifications > 0" class="badge badge-secondary">{{ notifications }}</span>
         </a>
@@ -13,11 +13,14 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
-import { mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 @Component({
   computed: {
     ...mapGetters(['notifications'])
+  },
+  methods: {
+    ...mapActions(['fetchNotifications'])
   }
 })
 export default class Header extends Vue {
