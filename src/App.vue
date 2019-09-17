@@ -1,19 +1,36 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <Header/>
     <router-view />
   </div>
 </template>
+
+<script>
+import { Component, Prop, Vue } from "vue-property-decorator";
+import { mapActions } from 'vuex';
+import Header from '@/components/Header.vue';
+
+@Component({
+    components: {
+        Header
+    },
+    methods: {
+      ...mapActions(['fetchNotifications'])
+    }
+})
+export default class App extends Vue {
+  mounted() {
+    this.fetchNotifications(1);
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  // text-align: center;
   color: #2c3e50;
 }
 #nav {
@@ -25,5 +42,10 @@
       color: #42b983;
     }
   }
+}
+
+.badge {
+  font-weight: bold !important;
+  background: #e01010 !important;
 }
 </style>

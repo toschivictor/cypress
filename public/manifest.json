@@ -1,6 +1,6 @@
 {
-  "name": "cypress",
-  "short_name": "cypress",
+  "name": "test",
+  "short_name": "test",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",
